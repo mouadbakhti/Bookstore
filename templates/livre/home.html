@@ -1,0 +1,25 @@
+{% extends 'main.html'%}
+
+
+{% block contenu%}
+<div class="container">
+    <div class="row">
+        {% for livre in livres%}
+        <div class="col-md-4">
+                <div class="card unified-card">
+                    <img src="{{livre.image_covr.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{livre.titre}}</h5>
+                        <p class="card-text">{{livre.description}}</p>
+                        <a href="{% url 'detail_livre' livre.id %}" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+        </div>
+        {%endfor%}
+
+    </div>
+</div>
+        <br><div class="text-center">
+            <a type="button" class="btn btn-success btn-ajouter btn-lg" href="{% url 'ajouter_livre' %}">Ajouter</a>
+        </div>
+{%endblock%}
